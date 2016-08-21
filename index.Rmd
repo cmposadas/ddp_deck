@@ -1,0 +1,49 @@
+---
+title: "Drivers in Diamond Price"
+author: "Christian Posadas"
+highlighter: highlight.js
+output: pdf_document
+job: Actuary
+knit: slidify::knit2slides
+mode: selfcontained
+hitheme: tomorrow
+subtitle: Exploring the Impact of Diamond Characteristics on Price
+framework: io2012
+widgets: []
+---
+
+## Motivation for Exploring Drivers in Price of Diamonds
+
+Someone who is looking to purchase diamonds would benefit
+from understanding how certain characteristics impact the
+price of a diamond
+
+---
+
+## Diamond Characteristics
+
+```Rmd
+Diamonds have 4 main characteristics called the 4 C's:
+1. Carats
+2. Cut
+3. Clarity
+4. Color
+
+---
+
+## What the App Does
+
+The app will explore how cut, clarity and color impact the price (per carat) of diamonds using boxplots and the 'diamonds' dataset in R.
+
+The 'diamonds' dataset contains the prices and other characteristics of about 54,000 diamonds.
+
+---
+
+## App Example: Impact of Cut on Price Per Carat
+# This is what the app will display if we select 'Cut':
+```{r plot, echo=FALSE}
+library(ggplot2)
+data("diamonds")
+ggplot(diamonds, aes(x = cut, y = price / carat, fill = cut)) + 
+        geom_boxplot() + xlab("Cut") + ylab("Price per Carat") + theme(legend.position="none")
+```
